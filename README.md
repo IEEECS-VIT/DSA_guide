@@ -1,1 +1,1 @@
-- [ARRAY]{https://github.com/IEEECS-VIT/DSA_guide/tree/master/ARRAY}
+- [ARRAY](https://github.com/IEEECS-VIT/DSA_guide/tree/master/ARRAY)
