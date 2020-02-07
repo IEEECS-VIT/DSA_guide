@@ -7,12 +7,10 @@
 - [Applications](#applications)
 - [Arrays in Various Programming Languages](#support-in-various-languages)
   1. [C](#c-language)
-  2. [C++](#c-langauge-1)
+  2. [C++](#c-language-1)
   3. [Python](#python-language)
   4. [Java](#java-language)
 - [Questions](#questions)
-  1. jsjjs
-  2. sjjsj
 
 ## INTRODUCTION
 
@@ -63,6 +61,7 @@ Example 1
 
 ```c
 int array1[100]
+char array2[100][100] // Multi Dimensional Array
 ```
 
 > **NOTE**: The array size cannot be a variable in C language it needs to be a constant.
@@ -140,11 +139,102 @@ std::cout << a[i]; // Output
 
 ## Python Language
 
-Array D
-
 Array is created in Python by importing array module to the python program.
 
 ```python
 from array import *
-a
+arr = array(data_type, value_list)
+arr1 = array('i',[1,2,3]) # Example
+```
+
+This type of array holds only homogenous data i.e. data with same datatype.
+
+Arrays in python can also be implemented using lists.
+
+```python
+arr = [] # Declaration of empty list.
+arr.append(6) # Adding element to arr.
+arr2 = [1,'a',"str1",[1,2]] # List Initialization
+                            # List within list can be used
+                            # to create multi dimensional array
+```
+
+> Lists can store arbitarily heterogenous data. It is very flexible as it providez support for large number of buikt in functions.
+
+How To Access Each Array Element?
+
+```python
+arr = [1,3,4,6,65,2]
+for i in arr: # Access using for loop
+  print(i)
+for i in range(len(arr)): # Access using index values
+  print(arr[i])
+```
+
+## Java Language
+
+How To Declare An Array?
+
+```java
+type var_name[];  // Two valid ways of declaring
+type[] var_name;  // array in Java
+```
+
+> The declaration only creates a variable array but no space is actually allocated. To actually alocate space use **new** operator. In Java all arrays are dynamically allocated.
+
+How To Allocate Memory For New Array?
+
+```java
+int[] array1;
+array1 = new int[size]; // Allocating Memory to array
+
+int[] array2 = new int[100] // Combining two statements
+```
+
+Accessing Array Elements In Java.
+
+```java
+for (int i = 0; i < arr.length; i++){
+System.out.println("Element at index " + i + " : "+ arr[i]);
+} // Accessing each element using for loop.
+```
+
+Array Of Objects.
+
+```java
+Object array[] = new Object[100] // Same declaration method
+                                 // as normal data type.
+```
+
+> In Java Array data type is itself an object. It also have various methods.
+
+Creating Multi-Dimensional Arrays?
+
+```java
+int[][] arr = new int[2][1] // 2D Array
+char[][][] arr2 = new char[2][2][3] // 3D Array
+```
+
+Input and Output Array Elements.
+
+```java
+import java.Scanner;
+Scanner input = new Scanner(System.in);
+int[] arr = new int[5];
+for(int  i =0; i < 5; i++){
+  arr[i] = input.nextInt(); // Input array elements
+}
+
+for (int i = 0; i < arr.length; i++){
+System.out.println("Element at index " + i + " : "+ arr[i]);
+} // Output each element
+```
+
+How To Copy An Array?
+
+Java gives an function called **\*clone()** to copy contents of one array to other.
+
+```java
+int[] arr = new int[]{1,2,3,4,5};
+int[] copyArray = arr.clone(); // Clone an array
 ```
