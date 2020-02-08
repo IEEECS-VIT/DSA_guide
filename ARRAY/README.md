@@ -157,6 +157,8 @@ arr.append(6) # Adding element to arr.
 arr2 = [1,'a',"str1",[1,2]] # List Initialization
                             # List within list can be used
                             # to create multi dimensional array
+arr.append(5) # to append in the list
+arr.pop(i) # to remove ith index element from the list
 ```
 
 > Lists can store arbitarily heterogenous data. It is very flexible as it providez support for large number of buikt in functions.
