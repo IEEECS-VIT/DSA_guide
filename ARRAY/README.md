@@ -11,6 +11,8 @@
   3. [Python](#python-language)
   4. [Java](#java-language)
 - [Questions](#questions)
+  1. [Array Rotation](#array-rotation)
+  2. [Prefix and Postfix Sums](#prefix-and-postfix-sums)
 
 ## INTRODUCTION
 
@@ -240,3 +242,46 @@ Java gives an function called **\*clone()** to copy contents of one array to oth
 int[] arr = new int[]{1,2,3,4,5};
 int[] copyArray = arr.clone(); // Clone an array
 ```
+
+## QUESTION
+
+### _Array Rotation_
+
+**Question:**
+
+Given an array of integers and an integer d, perform left rotation on array d times.
+An example of left rotation is [1,2,3,4,5] -> [2,3,4,5,1].
+
+**Solution:**
+
+If we rotate an array n times then we get same configurartion as original array.
+
+So we need to only rotate **d%n** times.
+
+Pseudocode for single left rotation can be like:
+
+```
+temp = a[1] // Store first element in a temporary variable.
+for i = 1 : n
+  a[i-1] = a[i] // Shift remaining elements left by 1
+                // position starting from second element.
+a[n] = temp; // Put the temporary variable in last of array.
+```
+
+**Similar Concepts:**
+
+1. Right rotation of array: It is same as left rotation just with a small difference. Example: [1,2,3,4,5] -> [5,4,3,2,1]
+
+2. Clockwise rotation is same as Right rotation.
+
+3. Anti-Clockwise rotation is same as Left Rotation.
+
+**Practice:**
+
+1. [Hackerrank - Array's Left Rotation](https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem)
+
+2. [Hackerearth - Monk and Rotation](https://www.hackerearth.com/practice/data-structures/arrays/1-d/practice-problems/algorithm/monk-and-rotation-3/)
+
+3. [CodeChef - Fun With Rotation](https://www.codechef.com/problems/ROTATION)
+
+### _Prefix And Postfix Sums_
