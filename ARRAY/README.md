@@ -13,6 +13,7 @@
 - [Questions](#questions)
   1. [Array Rotation](#array-rotation)
   2. [Prefix and Postfix Sums](#prefix-and-postfix-sums)
+  3. [Difference Arrays](#difference-array)
 
 ## INTRODUCTION
 
@@ -270,18 +271,95 @@ a[n] = temp; // Put the temporary variable in last of array.
 
 **Similar Concepts:**
 
-1. Right rotation of array: It is same as left rotation just with a small difference. Example: [1,2,3,4,5] -> [5,4,3,2,1]
-
+1. Right rotation of array: It is same as left rotation just with a small difference. Example: [1,2,3,4,5] -> [5,1,2,3,4]
 2. Clockwise rotation is same as Right rotation.
-
 3. Anti-Clockwise rotation is same as Left Rotation.
 
 **Practice:**
 
 1. [Hackerrank - Array's Left Rotation](https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem)
-
 2. [Hackerearth - Monk and Rotation](https://www.hackerearth.com/practice/data-structures/arrays/1-d/practice-problems/algorithm/monk-and-rotation-3/)
-
 3. [CodeChef - Fun With Rotation](https://www.codechef.com/problems/ROTATION)
 
 ### _Prefix And Postfix Sums_
+
+### _Difference Array_
+
+A difference array can be used when we have to update a particular range of array.
+
+If we are given an array of size **n** and need to update the value of elements in range [l, r] by same amount let it be x. I.E. perform a query of form _l r x_. For example:
+
+Given array: [1,2,3,1,4,6,8,0]
+
+Given Query: l = 2, r = 3, x = 5;
+
+After update operation array would be: [1,2+5,3+5,1+5,4+5,6,8,0]
+
+Suppose we need to perform **q** queries where each query is of form: l r x
+
+And then print the resultant array after q queries we can use difference array.
+
+_What is Difference Array_
+
+A difference array is an array of same size as original array initially all elements initialized to 0.
+
+diff[] - Difference Array
+
+Initially difference array will look like diff = [0: 1, 0: 2, 0: 3, ..,0: l,..,0: r,..., 0: n]
+
+> e: index representation is used.
+
+For query: l r x
+
+Update l'th index as diff[l] = diff[l] + x;
+
+Update r+1'th index as diff[r+1] = diff[r+1] - x;
+
+Now our array looks like diff = [0: 1, 0: 2, 0: 3, ..,x: l,..,-x: r,..., 0: n]
+
+But our array should have looked like [0: 1, ..., x: l, x: l+1,...,x: r-1,x: r,0: r+1,...0: n]
+
+Here's the trick
+
+```
+diff[1] = diff[1];
+for i = 2:n
+  diff[i] = diff[i-1] + diff[i];
+```
+
+After above code the arr would be as wanted.
+
+Hence all the **q** queries can be performed as
+
+1. Initialize Difference Array
+
+```
+for i = 1:n
+  diff[i] = 0
+```
+
+2. Perform Queries
+
+```
+for p = 1:q
+  read l
+  read r
+  read x
+  diff[l] += x
+  if(r+1 < n)
+    diff[r+1] -= x
+```
+
+3. Update difference array to required value
+
+```
+for i = 2 : n
+  diff[i] = diff[i] + diff[i-1]
+```
+
+We get the result of q queries update then at one update in O(n) time. Now update the original array.
+
+**Practice**
+
+1. [Hackerrank - Array Manipulation](https://www.hackerrank.com/challenges/crush/problem)
+2. [GeeksForGeeks - Constant Time Array Update](https://www.geeksforgeeks.org/constant-time-range-add-operation-array/)
