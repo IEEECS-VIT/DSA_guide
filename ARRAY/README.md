@@ -283,6 +283,49 @@ a[n] = temp; // Put the temporary variable in last of array.
 
 ### _Prefix And Postfix Sums_
 
+What is a Prefix Sum?
+
+Let there be array arr = [1,2,3,6,7,8,9]
+
+The prefix sum of ith element is defined as: sum(arr[0], arr[i])
+
+**The sum of elements from 0 to i index** is defined as prefix sum of array arr of ith element.
+
+The prefix sum array can be defined as array of prefix sums of array indexes.
+
+Let array be arr[] of size n
+
+Let prefix[] be prefix sum array.
+
+So prefix[] array can be created as:
+
+```
+prefix[0] = arr[0]
+for i = 1 : n-1
+  prefix[i] = prefix[i-1] + arr[i]
+```
+
+Similarly concept for postfix sum can be said as
+
+**Sum of elements from ith index to last element** can be said as postfix sum of ith index.
+
+postfix[] can be created as follows:
+
+```
+postfix[n-1] = arr[n-1]
+for i = n-2 : 0
+  postfix[i] = postfix[i+1] + arr[i]
+```
+
+There are various applications of postfix and prefix sums in various questions.
+
+**Practice Problems:**
+
+1. [Equilibrium Index of Array](https://www.geeksforgeeks.org/equilibrium-index-of-an-array/)
+2. [Find subarray with 0 sum](https://www.geeksforgeeks.org/find-if-there-is-a-subarray-with-0-sum/)
+3. [Perfect Subarray](https://www.hackerearth.com/ru/practice/data-structures/arrays/1-d/practice-problems/algorithm/perfect-subarray-43560f46/)
+4. [Find the Sum](https://www.codechef.com/LTIME76B/problems/PAIRSUM2/)
+
 ### _Difference Array_
 
 A difference array can be used when we have to update a particular range of array.
